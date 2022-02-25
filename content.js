@@ -13,12 +13,11 @@ window.onload = function(){
     function skipFirstInner(callback) {
         if (adPlayerOverlay[0] && adPlayerOverlay.length > 0) {
             adPlayerOverlay[0].style.visibility = 'hidden';
-            callback();
         }
         else if (adImageOverlay[0] && adImageOverlay.length > 0) {
             adImageOverlay[0].style.visibility = 'hidden';
-            callback();
         }
+        callback();
     }
 
     function clickSkipBtn() {
@@ -36,7 +35,12 @@ window.onload = function(){
                    (firstAd && firstAd[1] && firstAd[1].innerHTML.includes('Ad')) ||
                    (firstAd && firstAd[0] && firstAd[0].innerHTML.includes('Ad'))) {
                     clickSkipBtn();
-                    document.querySelector('video').currentTime = document.querySelector('video').duration;
+                    let videos = document.querySelectorAll('video');
+                    for(let i=0; i<videos.length; i++) {
+                        if(videos[i] && videos[i].duration) {
+                            videos[i].currentTime = videos[i].duration;
+                        }
+                    }
                 }
             });
         }
