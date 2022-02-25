@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Ad Blocker for YouTube",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "description": "Watch YouTube without any ads!",
     "author": "Peter Pi",
     "icons": { "128": "icon_128.png" },
